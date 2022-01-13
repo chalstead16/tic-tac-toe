@@ -17,9 +17,13 @@ class Game {
   }
 
 //A way to keep track of which player's turn it currently is
-  updatePlayerTurns() {
-
+  updateCurrentPlayerTurn() {
+    if (this.playerTurn === 1) {
+      this.playerTurn = 2;
+    } else {
+      this.playerTurn = 1;
   }
+}
 
   //A way to check the Game's board data for win conditions
   checkWinConditions() {
