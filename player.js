@@ -1,8 +1,8 @@
 class Player {
-  constructor(player) {
-    this.id = player.id;
-    this.token = player.token;
-    this.wins = player.wins;
+  constructor(playerId, playerToken) {
+    this.id = playerId;
+    this.token = playerToken;
+    this.wins = [];
   }
 
   saveWinsToStorage() {
@@ -10,6 +10,6 @@ class Player {
   }
 
   retreieveWinsFromStorage() {
-    
+
   }
 }
