@@ -17,6 +17,7 @@ class Game {
         this.gameboard[position] = this.player2.token;
       }
       this.checkWinConditions();
+      this.detectDraw();
       this.updateCurrentPlayerTurn();
   }
 
@@ -60,7 +61,9 @@ class Game {
 
   //A way to detect when a game is a draw(no one has won)
   detectDraw() {
-
+    if (!this.gameboard.includes('')){
+      console.log('draw')
+    }
   }
   //A way to reset the Game's board to begin a new game
   resetGameboard() {
