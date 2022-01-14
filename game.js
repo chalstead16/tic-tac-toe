@@ -20,7 +20,6 @@ class Game {
       this.updateCurrentPlayerTurn();
   }
 
-//A way to keep track of which player's turn it currently is
   updateCurrentPlayerTurn() {
     if (this.currentPlayerTurn === 1) {
       this.currentPlayerTurn = 2;
@@ -29,7 +28,6 @@ class Game {
     }
   }
 
-  //A way to check the Game's board data for win conditions
   checkWinConditions() {
     if (this.gameboard[0] === this.gameboard[1] && this.gameboard[1] === this.gameboard[2] && this.gameboard[0] !== '') {
       this.win();
@@ -50,9 +48,14 @@ class Game {
     }
   }
 
-  //Add win to player win count
   win() {
     console.log(`${this.currentPlayerTurn} wins!`);
+    if (this.currentPlayerTurn === 1) {
+      this.player1.wins ++;
+    }
+    if (this.currentPlayerTurn === 2) {
+      this.player2.wins ++;
+    }
   }
 
   //A way to detect when a game is a draw(no one has won)
@@ -61,7 +64,7 @@ class Game {
   }
   //A way to reset the Game's board to begin a new game
   resetGameboard() {
-    
+
   }
   //does not reset wins it only resets the board for a new game to be played
 
