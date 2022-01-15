@@ -43,3 +43,15 @@
    height: 150px;
    width: 600px;
  }
+
+ .gameboard {
+   display: grid;
+   grid-template-rows: 200px 200px 200px;
+   grid-template-columns: 200px 200px 200px;
+   margin-top: 10px;
+ }
+
+ .box {
+   outline: 5px solid #e5ebee;
+   box-shadow: 10px 10px #c6d1d6;
+ }
