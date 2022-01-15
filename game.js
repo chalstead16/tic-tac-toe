@@ -3,7 +3,8 @@ class Game {
     this.player1 = new Player("one", "🌈");
     this.player2 = new Player("two", "🍰");
     this.gameboard = ['','','','','','','','',''];
-    this.currentPlayerTurn = 1;
+    this.startingPlayer = 1;
+    this.currentPlayerTurn = this.startingPlayer;
   }
 
   placePlayerToken(position) {
@@ -66,8 +67,18 @@ class Game {
       this.resetGameboard();
     }
   }
-  //A way to reset the Game's board to begin a new game
+  
   resetGameboard() {
     this.gameboard = ['','','','','','','','',''];
+    this.currentPlayerTurn = this.startingPlayer;
+    this.setStartingPlayer();
+  }
+
+  setStartingPlayer() {
+    if (this.startingPlayer === 1) {
+      this.startingPlayer = 2;
+    } else {
+      this.startingPlayer = 1;
+    }
   }
 }
