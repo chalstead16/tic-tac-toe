@@ -17,7 +17,6 @@ class Game {
         this.gameboard[position] = this.player2.token;
       }
       this.checkWinConditions();
-      this.detectDraw();
       this.updateCurrentPlayerTurn();
   }
 
@@ -47,6 +46,7 @@ class Game {
     } else if (this.gameboard[0] === this.gameboard[4] && this.gameboard[4] === this.gameboard[8] && this.gameboard[0] !== ''){
       this.win();
     }
+    this.detectDraw();
   }
 
   win() {
@@ -57,18 +57,17 @@ class Game {
     if (this.currentPlayerTurn === 2) {
       this.player2.wins ++;
     }
+    this.resetGameboard();
   }
 
-  //A way to detect when a game is a draw(no one has won)
   detectDraw() {
     if (!this.gameboard.includes('')){
       console.log('draw')
+      this.resetGameboard();
     }
   }
   //A way to reset the Game's board to begin a new game
   resetGameboard() {
-
+    this.gameboard = ['','','','','','','','',''];
   }
-  //does not reset wins it only resets the board for a new game to be played
-
 }
