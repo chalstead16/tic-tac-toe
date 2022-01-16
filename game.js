@@ -52,7 +52,6 @@ class Game {
   }
 
   win() {
-    console.log(`${this.currentPlayerTurn} wins!`);
     if (this.currentPlayerTurn === 1) {
       this.winner = this.player1;
       this.player1.wins ++;
@@ -66,9 +65,8 @@ class Game {
 
   detectDraw() {
     if (!this.gameboard.includes('')){
-      console.log('draw')
+      this.winner = "Draw";
       this.resetGameboard();
-      this.gameReset = true;
     }
   }
 
@@ -85,5 +83,4 @@ class Game {
       this.startingPlayer = 1;
     }
   }
-
 }
