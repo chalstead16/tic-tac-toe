@@ -5,6 +5,7 @@ class Game {
     this.gameboard = ['','','','','','','','',''];
     this.startingPlayer = 1;
     this.currentPlayerTurn = this.startingPlayer;
+    this.currentWinner = [];
   }
 
   placePlayerToken(position) {
@@ -53,9 +54,11 @@ class Game {
   win() {
     console.log(`${this.currentPlayerTurn} wins!`);
     if (this.currentPlayerTurn === 1) {
+      this.currentWinner = this.player1;
       this.player1.wins ++;
     }
     if (this.currentPlayerTurn === 2) {
+      this.currentWinner = this.player2;
       this.player2.wins ++;
     }
     this.resetGameboard();
@@ -67,12 +70,16 @@ class Game {
       this.resetGameboard();
     }
   }
-  
+
   resetGameboard() {
     this.gameboard = ['','','','','','','','',''];
     this.currentPlayerTurn = this.startingPlayer;
     this.setStartingPlayer();
   }
+
+  // resetWinner() {
+  //   this.winner = '';
+  // }
 
   setStartingPlayer() {
     if (this.startingPlayer === 1) {
