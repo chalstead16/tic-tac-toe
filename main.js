@@ -3,7 +3,9 @@ var ticTacToe = new Game;
 
 //############## QUERY SELECTORS ##############//
 var gameboard = document.querySelector(".gameboard");
-var displayMessage = document.querySelector(".message")
+var displayMessage = document.querySelector(".message");
+var player1Scoreboard = document.querySelector(".p1-scoreboard-container");
+var player2Scoreboard = document.querySelector(".p2-scoreboard-container");
 
 //############## EVENT LISTENERS ##############//
 gameboard.addEventListener("click", playerTakeTurn);
@@ -40,13 +42,19 @@ function displayCurrentTurn() {
 
 function displayWinner() {
   if (ticTacToe.winner === ticTacToe.player1) {
-    displayMessage.innerText = `${ticTacToe.player1.token} wins!`
+    displayMessage.innerText = `${ticTacToe.player1.token} wins!`;
+    player1Scoreboard.innerHTML = `
+    <h1>${ticTacToe.player1.wins}</h1>
+    `
     setTimeout(function() {
       resetTicTacToe();
     }, 2000);
   }
   if (ticTacToe.winner === ticTacToe.player2) {
-    displayMessage.innerHTML = `${ticTacToe.player2.token} wins!`
+    displayMessage.innerText = `${ticTacToe.player2.token} wins!`;
+    player2Scoreboard.innerHTML = `
+    <h1>${ticTacToe.player2.wins}</h1>
+    `
     setTimeout(function() {
       resetTicTacToe();
     }, 2000);
@@ -59,5 +67,5 @@ function resetTicTacToe() {
        gridPosition[i].innerHTML = ``;
   }
   ticTacToe.winner = '';
-    displayMessage.innerHTML = ``;
+  displayMessage.innerHTML = ``;
 }
