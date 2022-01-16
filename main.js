@@ -2,13 +2,13 @@
 var ticTacToe = new Game;
 
 //############## QUERY SELECTORS ##############//
-var gameboard = document.querySelector(".gameboard");
+var game = document.querySelector(".gameboard");
 var displayMessage = document.querySelector(".message");
 var player1Scoreboard = document.querySelector(".p1-scoreboard-container");
 var player2Scoreboard = document.querySelector(".p2-scoreboard-container");
 
 //############## EVENT LISTENERS ##############//
-gameboard.addEventListener("click", playerTakeTurn);
+game.addEventListener("click", playerTakeTurn);
 
 //############## DOM MANIPULATION FUNCTIONS ##############//
 function playerTakeTurn(event) {
@@ -29,6 +29,7 @@ function playerTakeTurn(event) {
   ticTacToe.placePlayerToken(event.target.id);
   displayCurrentTurn();
   displayWinner();
+  displayDraw();
 }
 
 function displayCurrentTurn() {
@@ -49,12 +50,20 @@ function displayWinner() {
     setTimeout(function() {
       resetTicTacToe();
     }, 2000);
-  }
-  if (ticTacToe.winner === ticTacToe.player2) {
+  } else if (ticTacToe.winner === ticTacToe.player2) {
     displayMessage.innerText = `${ticTacToe.player2.token} wins!`;
     player2Scoreboard.innerHTML = `
     <h1>${ticTacToe.player2.wins}</h1>
     `
+    setTimeout(function() {
+      resetTicTacToe();
+    }, 2000);
+  }
+}
+
+function displayDraw() {
+  if (ticTacToe.winner === "Draw") {
+    displayMessage.innerText = "Draw! Play again!";
     setTimeout(function() {
       resetTicTacToe();
     }, 2000);
