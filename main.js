@@ -28,15 +28,30 @@ function playerTakeTurn(event) {
   displayWinner();
 }
 
-function displayWinner(){
-  if (ticTacToe.currentWinner === ticTacToe.player1) {
+function displayWinner() {
+  if (ticTacToe.winner === ticTacToe.player1) {
     displayMessage.innerHTML += `
     <h1>Player One WINS!</h1>
     `
+    setTimeout(function() {
+      resetTicTacToe();
+    }, 2000);
   }
-  if (ticTacToe.currentWinner === ticTacToe.player2) {
+  if (ticTacToe.winner === ticTacToe.player2) {
     displayMessage.innerHTML += `
     <h1>Player Two WINS!</h1>
     `
+    setTimeout(function() {
+      resetTicTacToe();
+    }, 2000);
   }
+}
+
+function resetTicTacToe() {
+  var gridPosition = document.querySelectorAll(".box")
+  for (var i = 0; i < gridPosition.length; i++) {
+       gridPosition[i].innerHTML = ``;
+  }
+  ticTacToe.winner = '';
+    displayMessage.innerHTML = ``;
 }
