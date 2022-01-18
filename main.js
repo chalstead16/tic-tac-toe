@@ -45,7 +45,8 @@ function displayWinner() {
   if (ticTacToe.winner === ticTacToe.player1) {
     displayMessage.innerText = `${ticTacToe.player1.token} wins!`;
     player1Scoreboard.innerHTML = `
-    <h1>${ticTacToe.player1.wins} wins</h1>
+    <h1>${ticTacToe.player1.wins}</h1>
+    <h2>wins</h2>
     `
     game.removeEventListener('click', playerTakeTurn);
     timer();
@@ -53,7 +54,8 @@ function displayWinner() {
   if (ticTacToe.winner === ticTacToe.player2) {
     displayMessage.innerText = `${ticTacToe.player2.token} wins!`;
     player2Scoreboard.innerHTML = `
-    <h1>${ticTacToe.player2.wins} wins</h1>
+    <h1>${ticTacToe.player2.wins}</h1>
+    <h2>wins</h2>
     `
     game.removeEventListener('click', playerTakeTurn);
     timer();
