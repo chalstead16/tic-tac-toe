@@ -15,12 +15,12 @@ function playerTakeTurn(event) {
   var gridPosition = document.querySelectorAll(".box")
   for (var i = 0; i < gridPosition.length; i++){
     if (event.target.id === gridPosition[i].id
-      && ticTacToe.currentPlayerTurn === 1) {
+      && ticTacToe.currentPlayerTurn === ticTacToe.player1) {
       gridPosition[i].innerHTML += `
       <h1>${ticTacToe.player1.token}</h1>
       `
     } else if (event.target.id === gridPosition[i].id
-       && ticTacToe.currentPlayerTurn === 2) {
+       && ticTacToe.currentPlayerTurn === ticTacToe.player2) {
       gridPosition[i].innerHTML += `
       <h1>${ticTacToe.player2.token}</h1>
       `
@@ -33,10 +33,10 @@ function playerTakeTurn(event) {
 }
 
 function displayCurrentTurn() {
-  if (ticTacToe.currentPlayerTurn === 1) {
+  if (ticTacToe.currentPlayerTurn === ticTacToe.player1) {
     displayMessage.innerText = `${ticTacToe.player1.token}'s turn`
   }
-  if (ticTacToe.currentPlayerTurn === 2) {
+  if (ticTacToe.currentPlayerTurn === ticTacToe.player2) {
     displayMessage.innerText = `${ticTacToe.player2.token}'s turn`
   }
 }
@@ -45,28 +45,23 @@ function displayWinner() {
   if (ticTacToe.winner === ticTacToe.player1) {
     displayMessage.innerText = `${ticTacToe.player1.token} wins!`;
     player1Scoreboard.innerHTML = `
-    <h1>${ticTacToe.player1.wins}</h1>
+    <h1>${ticTacToe.player1.wins} wins</h1>
     `
-    setTimeout(function() {
-      resetTicTacToe();
-    }, 2000);
-  } else if (ticTacToe.winner === ticTacToe.player2) {
+    timer();
+  }
+  if (ticTacToe.winner === ticTacToe.player2) {
     displayMessage.innerText = `${ticTacToe.player2.token} wins!`;
     player2Scoreboard.innerHTML = `
-    <h1>${ticTacToe.player2.wins}</h1>
+    <h1>${ticTacToe.player2.wins} wins</h1>
     `
-    setTimeout(function() {
-      resetTicTacToe();
-    }, 2000);
+    timer();
   }
 }
 
 function displayDraw() {
   if (ticTacToe.winner === "Draw") {
     displayMessage.innerText = "Draw! Play again!";
-    setTimeout(function() {
-      resetTicTacToe();
-    }, 2000);
+    timer();
   }
 }
 
@@ -76,5 +71,11 @@ function resetTicTacToe() {
        gridPosition[i].innerHTML = ``;
   }
   ticTacToe.winner = '';
-  displayMessage.innerHTML = ``;
+  displayMessage.innerHTML = `${ticTacToe.currentPlayerTurn.token}'s turn!`;
+}
+
+function timer() {
+  setTimeout(function() {
+    resetTicTacToe();
+  }, 2000);
 }
