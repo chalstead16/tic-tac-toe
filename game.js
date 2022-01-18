@@ -1,9 +1,9 @@
 class Game {
   constructor(){
-    this.player1 = new Player("one", "🌈");
-    this.player2 = new Player("two", "🍰");
+    this.player1 = new Player("player1", "🌈");
+    this.player2 = new Player("player2", "🍰");
     this.gameboard = ['','','','','','','','',''];
-    this.startingPlayer = 1;
+    this.startingPlayer = this.player1;
     this.currentPlayerTurn = this.startingPlayer;
     this.winner = '';
   }
@@ -12,10 +12,10 @@ class Game {
     if (this.gameboard[position] != ''){
       return "this spot is taken, pick a new spot!"
       }
-      if (this.currentPlayerTurn === 1) {
+      if (this.currentPlayerTurn === this.player1) {
         this.gameboard[position] = this.player1.token;
       }
-      if (this.currentPlayerTurn === 2) {
+      if (this.currentPlayerTurn === this.player2) {
         this.gameboard[position] = this.player2.token;
       }
       this.checkWinConditions();
@@ -23,10 +23,10 @@ class Game {
   }
 
   updateCurrentPlayerTurn() {
-    if (this.currentPlayerTurn === 1) {
-      this.currentPlayerTurn = 2;
+    if (this.currentPlayerTurn === this.player1) {
+      this.currentPlayerTurn = this.player2;
     } else {
-      this.currentPlayerTurn = 1;
+      this.currentPlayerTurn = this.player1;
     }
   }
 
@@ -52,11 +52,11 @@ class Game {
   }
 
   win() {
-    if (this.currentPlayerTurn === 1) {
+    if (this.currentPlayerTurn === this.player1) {
       this.winner = this.player1;
       this.player1.wins ++;
     }
-    if (this.currentPlayerTurn === 2) {
+    if (this.currentPlayerTurn === this.player2) {
       this.winner = this.player2;
       this.player2.wins ++;
     }
@@ -77,10 +77,10 @@ class Game {
   }
 
   setStartingPlayer() {
-    if (this.startingPlayer === 1) {
-      this.startingPlayer = 2;
+    if (this.startingPlayer === this.player1) {
+      this.startingPlayer = this.player2;
     } else {
-      this.startingPlayer = 1;
+      this.startingPlayer = this.player1;
     }
   }
 }
