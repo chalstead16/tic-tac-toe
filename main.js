@@ -15,13 +15,13 @@ function playerTakeTurn(event) {
   var gridPosition = document.querySelectorAll(".box")
   for (var i = 0; i < gridPosition.length; i++){
     if (event.target.id === gridPosition[i].id
-      && ticTacToe.currentPlayerTurn === ticTacToe.player1) {
-      gridPosition[i].innerHTML += `
+      && ticTacToe.currentPlayer === ticTacToe.player1 && gridPosition[i].innerHTML === '') {
+      gridPosition[i].innerHTML = `
       <h1>${ticTacToe.player1.token}</h1>
       `
     } else if (event.target.id === gridPosition[i].id
-       && ticTacToe.currentPlayerTurn === ticTacToe.player2) {
-      gridPosition[i].innerHTML += `
+       && ticTacToe.currentPlayer === ticTacToe.player2 && gridPosition[i].innerHTML === '') {
+      gridPosition[i].innerHTML = `
       <h1>${ticTacToe.player2.token}</h1>
       `
     }
@@ -33,10 +33,10 @@ function playerTakeTurn(event) {
 }
 
 function displayCurrentTurn() {
-  if (ticTacToe.currentPlayerTurn === ticTacToe.player1) {
+  if (ticTacToe.currentPlayer === ticTacToe.player1) {
     displayMessage.innerText = `${ticTacToe.player1.token}'s turn`
   }
-  if (ticTacToe.currentPlayerTurn === ticTacToe.player2) {
+  if (ticTacToe.currentPlayer === ticTacToe.player2) {
     displayMessage.innerText = `${ticTacToe.player2.token}'s turn`
   }
 }
@@ -47,6 +47,7 @@ function displayWinner() {
     player1Scoreboard.innerHTML = `
     <h1>${ticTacToe.player1.wins} wins</h1>
     `
+    game.removeEventListener('click', playerTakeTurn);
     timer();
   }
   if (ticTacToe.winner === ticTacToe.player2) {
@@ -54,6 +55,7 @@ function displayWinner() {
     player2Scoreboard.innerHTML = `
     <h1>${ticTacToe.player2.wins} wins</h1>
     `
+    game.removeEventListener('click', playerTakeTurn);
     timer();
   }
 }
@@ -71,7 +73,8 @@ function resetTicTacToe() {
        gridPosition[i].innerHTML = ``;
   }
   ticTacToe.winner = '';
-  displayMessage.innerHTML = `${ticTacToe.currentPlayerTurn.token}'s turn!`;
+  displayMessage.innerHTML = `${ticTacToe.currentPlayer.token}'s turn!`;
+  game.addEventListener("click", playerTakeTurn);
 }
 
 function timer() {
