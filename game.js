@@ -4,18 +4,26 @@ class Game {
     this.player2 = new Player("player2", "🍰");
     this.gameboard = ['','','','','','','','',''];
     this.startingPlayer = this.player1;
-    this.currentPlayerTurn = this.startingPlayer;
+    this.currentPlayer = this.startingPlayer;
     this.winner = '';
+  }
+
+  setStartingPlayer() {
+    if (this.startingPlayer === this.player1) {
+      this.startingPlayer = this.player2;
+    } else {
+      this.startingPlayer = this.player1;
+    }
   }
 
   placePlayerToken(position) {
     if (this.gameboard[position] != ''){
       return "this spot is taken, pick a new spot!"
       }
-      if (this.currentPlayerTurn === this.player1) {
+      if (this.currentPlayer === this.player1) {
         this.gameboard[position] = this.player1.token;
       }
-      if (this.currentPlayerTurn === this.player2) {
+      if (this.currentPlayer === this.player2) {
         this.gameboard[position] = this.player2.token;
       }
       this.checkWinConditions();
@@ -23,10 +31,10 @@ class Game {
   }
 
   updateCurrentPlayerTurn() {
-    if (this.currentPlayerTurn === this.player1) {
-      this.currentPlayerTurn = this.player2;
+    if (this.currentPlayer === this.player1) {
+      this.currentPlayer = this.player2;
     } else {
-      this.currentPlayerTurn = this.player1;
+      this.currentPlayer = this.player1;
     }
   }
 
@@ -52,11 +60,11 @@ class Game {
   }
 
   win() {
-    if (this.currentPlayerTurn === this.player1) {
+    if (this.currentPlayer === this.player1) {
       this.winner = this.player1;
       this.player1.wins ++;
     }
-    if (this.currentPlayerTurn === this.player2) {
+    if (this.currentPlayer === this.player2) {
       this.winner = this.player2;
       this.player2.wins ++;
     }
@@ -72,15 +80,7 @@ class Game {
 
   resetGameboard() {
     this.gameboard = ['','','','','','','','',''];
-    this.currentPlayerTurn = this.startingPlayer;
+    this.currentPlayer = this.startingPlayer;
     this.setStartingPlayer();
-  }
-
-  setStartingPlayer() {
-    if (this.startingPlayer === this.player1) {
-      this.startingPlayer = this.player2;
-    } else {
-      this.startingPlayer = this.player1;
-    }
   }
 }
