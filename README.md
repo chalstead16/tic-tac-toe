@@ -21,7 +21,7 @@ After the first round is won, the game-board will reset, the winning player's sc
 
 
 ## Game Ends in a Draw
-![draw round](https://im2.ezgif.com/tmp/ezgif-2-c94d9a3270.gif)
+![draw round](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/eb4909a9-533d-45d5-969c-1ddc9df69410.gif?ClientID=vimeo-core-prod&Date=1648182283&Signature=438325a810137d2bca8060d95aa244855b88ac9e)
 
 In the event a game is ended without a player having three of their token's in a row, the gameboard will reset, neither player's score will increase
 
