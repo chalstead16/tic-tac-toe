@@ -33,3 +33,6 @@ In the event a game is ended without a player having three of their token's in a
 - HTML
 - CSS
 - JavaScript
+
+## Acknowledgements
+- background image by [rawpixel.com](https://www.rawpixel.com/image/3898172/v1015-101eps)
