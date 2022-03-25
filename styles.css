@@ -1,10 +1,14 @@
  body {
-   background-color: #abddfc;
-   font-family: 'Bungee Shade', cursive;
-   color: #e5ebee;
-   font-size: 30px;
-   height: 100%;
-   width: 100%;
+   background: url("https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjEwMTUtMTAxLWtzdG9wamFmLmpwZw.jpg?s=LGWCBBIn8eume5zSy9xYW4g4wch1T4RFJ0ckyS3eihQ")no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+   background-size: cover;
+   font-family: 'Fredoka One', cursive;
+   color: #ffffff;
+   font-size: 50px;
+   height: 100vh;
+   width: 100vw;
    display: flex;
    justify-content: space-evenly;
    align-items: flex-start;
@@ -18,23 +22,36 @@
  }
 
  .player-board {
-   font-size: 150px;
+   font-size: 130px;
    display: flex;
    flex-direction: column;
    height: 30vh;
-   margin-top: 10px;
  }
 
  .p1-scoreboard-container {
    display: flex;
    flex-direction: column;
    align-items: center;
+   justify-content: center;
+   width:305px;
+   height:320px;
+   background:#FFFFFF;
+   box-shadow: 10px 10px rgb(144, 200, 232, 0.2);
+   border-radius:100px;
+   color: #66b5e4;
  }
 
  .p2-scoreboard-container {
    display: flex;
    flex-direction: column;
    align-items: center;
+   justify-content: center;
+   width:305px;
+   height:320px;
+   background:#FFFFFF;
+   box-shadow: 10px 10px rgb(144, 200, 232, 0.2);
+   border-radius:100px;
+   color: #66b5e4;
  }
 
  .main-section-container {
@@ -47,9 +64,15 @@
 
  h1 {
    font-size: 80px;
-   color: #e5ebee;
-   margin-bottom: 30px;
+   color: #ffffff;
+   margin-top: 5px;
+   margin-bottom: 5px;
    white-space: nowrap;
+ }
+
+ h2 {
+   margin-top: 5px;
+   margin-bottom: 5px;
  }
 
  .display-message-section {
@@ -62,14 +85,16 @@
 
  .gameboard {
    display: grid;
-   grid-template-rows: 200px 200px 200px;
-   grid-template-columns: 200px 200px 200px;
+   grid-template-rows: 150px 150px 150px;
+   grid-template-columns: 150px 150px 150px;
    margin-top: 10px;
+   border: 5px solid #f9f9f9;
+   border-radius: 10px;
  }
 
  .box {
    display: flex;
    justify-content: center;
-   outline: 5px solid #e5ebee;
-   box-shadow: 10px 10px #c6d1d6;
+   outline: 5px solid #f9f9f9;
+   border-radius: 10px;
  }
