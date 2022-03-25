@@ -34,10 +34,10 @@ function playerTakeTurn(event) {
 
 function displayCurrentTurn() {
   if (ticTacToe.currentPlayer === ticTacToe.player1) {
-    displayMessage.innerText = `${ticTacToe.player1.token}'s turn`
+    displayMessage.innerText = `${ticTacToe.player1.token} 's turn`
   }
   if (ticTacToe.currentPlayer === ticTacToe.player2) {
-    displayMessage.innerText = `${ticTacToe.player2.token}'s turn`
+    displayMessage.innerText = `${ticTacToe.player2.token} 's turn`
   }
 }
 
@@ -45,7 +45,7 @@ function displayWinner() {
   if (ticTacToe.winner === ticTacToe.player1) {
     displayMessage.innerText = `${ticTacToe.player1.token} wins!`;
     player1Scoreboard.innerHTML = `
-    <h1>${ticTacToe.player1.wins}</h1>
+    <h2>${ticTacToe.player1.wins}</h2>
     <h2>wins</h2>
     `
     game.removeEventListener('click', playerTakeTurn);
@@ -54,7 +54,7 @@ function displayWinner() {
   if (ticTacToe.winner === ticTacToe.player2) {
     displayMessage.innerText = `${ticTacToe.player2.token} wins!`;
     player2Scoreboard.innerHTML = `
-    <h1>${ticTacToe.player2.wins}</h1>
+    <h2>${ticTacToe.player2.wins}</h2>
     <h2>wins</h2>
     `
     game.removeEventListener('click', playerTakeTurn);
@@ -75,7 +75,7 @@ function resetTicTacToe() {
        gridPosition[i].innerHTML = ``;
   }
   ticTacToe.winner = '';
-  displayMessage.innerHTML = `${ticTacToe.currentPlayer.token}'s turn!`;
+  displayMessage.innerHTML = `${ticTacToe.currentPlayer.token} 's turn!`;
   game.addEventListener("click", playerTakeTurn);
 }
 
