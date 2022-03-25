@@ -9,7 +9,7 @@ Enjoy a game of tic-tac-toe without the pen and paper!
 
 ## Playing the Game
 
-![first two rounds](https://im2.ezgif.com/tmp/ezgif-2-1be7798837.gif)
+![first two rounds](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/bee531b1-4543-4645-acd4-12b325dd6295.gif?ClientID=vimeo-core-prod&Date=1648181629&Signature=e920811dc6eeaa935b4193e71d7dead416ad87e1)
 
 🌈 starts the game by selecting an empty grid position to place their token.
 
